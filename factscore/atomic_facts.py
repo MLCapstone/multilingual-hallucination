@@ -11,7 +11,12 @@ from rank_bm25 import BM25Okapi
 import os
 import time
 from nltk.tokenize import sent_tokenize
-from bnlp import NLTKTokenizer
+from nltk.tokenize import word_tokenize
+
+class NLTKTokenizer:
+    def tokenize(self, text):
+        return word_tokenize(text)
+
 bnltk = NLTKTokenizer()
 
 # from openai_lm import OpenAIModel
@@ -21,7 +26,7 @@ from factscore.lm import LM
 from factscore.clm import Mistral_LM
 
 nltk.download("punkt")
-
+nltk.download("punkt_tab")
 
 class AtomicFactGenerator(object):
     def __init__(self, key_path, demon_dir, gpt3_cache_file=None, open_source=None):
@@ -392,5 +397,3 @@ def fix_sentence_splitter(curr_sentences, initials):
             assert not combine_with_previous
             sentences.append(sent)
     return sentences
-
-
