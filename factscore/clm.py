@@ -63,14 +63,7 @@ class Mistral_LM(LM):
         {"role": "user", "content": q}
         ]
 
-        # encodeds = self.tokenizer.apply_chat_template(messages_to_pass, return_tensors="pt").to("cuda")
-        encodeds = self.tokenizer.apply_chat_template(messages_to_pass, return_tensors="pt")
-        if not isinstance(encodeds, torch.Tensor):
-            encodeds = encodeds["input_ids"]
-        encodeds = encodeds.to("cuda")
-
-        # add this temporarily
-        print(type(encodeds), encodeds.shape)
+        encodeds = self.tokenizer.apply_chat_template(messages_to_pass, return_tensors="pt").to("cuda")
 
         generated_ids = self.model.generate(encodeds, pad_token_id=self.tokenizer.eos_token_id,
                                              max_new_tokens=max_new_tokens, do_sample=do_sample, 
@@ -86,16 +79,12 @@ class Mistral_LM(LM):
         
         messages = [{"role": "user", "content": prompt}]
 
-        # tokens = self.tokenizer.apply_chat_template(messages, return_tensors="pt",
-        #                                             add_generation_prompt=True).to("cuda")
         tokens = self.tokenizer.apply_chat_template(messages, return_tensors="pt",
-                                            add_generation_prompt=True)
-        if not isinstance(tokens, torch.Tensor):
-            tokens = tokens["input_ids"]
-        tokens = tokens.to("cuda")
+                                                    add_generation_prompt=True).to("cuda")
         
         out = self.model.generate(tokens, pad_token_id=self.tokenizer.eos_token_id, max_new_tokens=max_new_tokens, 
                      output_scores=True, return_dict_in_generate=True)
         
         return out["scores"][0].detach().cpu().numpy()
             
+
