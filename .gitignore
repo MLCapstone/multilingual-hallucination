@@ -67,3 +67,10 @@ fs-venv
 poetry.lock
 
 acl-publication-info.74k.parquet
+
+# Notebooks
+quickstart.ipynb
+generate_bio.py
+run_multifact.py
+translate_bio_w_gpt.py
+roberta_stopwords.txt
