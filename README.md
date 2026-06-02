@@ -2,23 +2,7 @@
 
 ## Abstract
 
-This study analyzes the effectiveness of various hallucination mitigation tech-
-niques in the generation of multilingual long-form text. Using the Multi-FAct
-evaluation framework (Shafayat et al. (2024)), the final fact evaluation score is
-derived from the FActScore metric, which is the percentage of claims in the LLM
-text that are verified using Wikipedia retrievals. This study evaluates the factuality
-of the biographies of national leaders produced by a Qwen 8B model. Our analy-
-sis performs each hallucination mitigation strategy on high, medium, and low re-
-source languages, specifically English, Hindi, Bengali, and Swahili. We compare
-a vanilla baseline against two distinct mitigation strategies: Retrieval-Augmented
-Generation (RAG) and Chain-of-Thought (CoT) prompting. Within RAG, we test
-two separate sub-strategies: one retrieves information from English Wikipedia
-while the other retrieves information from the target language Wikipedia. Sim-
-ilarly, for Chain-of-Thought prompting, we test two separate styles: one be-
-ing Zero-Shot Chain-of-Thought and the other being Plan-and-Solve Chain-of-
-Thought. The findings of this study aim to clarify the relationship between the
-availability of linguistic resources and the effectiveness of reasoning-based versus
-retrieval-based strategies in reducing hallucination.
+This study analyzes the effectiveness of various hallucination mitigation techniques in the generation of multilingual long-form text. Using the Multi-FAct evaluation framework (Shafayat et al. (2024)), the final fact evaluation score is derived from the FActScore metric, which is the percentage of claims in the LLM text that are verified using Wikipedia retrievals. This study evaluates the factuality of the biographies of national leaders produced by a Qwen 8B model. Our analysis performs each hallucination mitigation strategy on high, medium, and low resource languages, specifically English, Hindi, Bengali, and Swahili. We compare a vanilla baseline against two distinct mitigation strategies: Retrieval-Augmented Generation (RAG) and Chain-of-Thought (CoT) prompting. Within RAG, we test two separate sub-strategies: one retrieves information from English Wikipedia while the other retrieves information from the target language Wikipedia. Similarly, for Chain-of-Thought prompting, we test two separate styles: one being Zero-Shot Chain-of-Thought and the other being Plan-and-Solve Chain-of-Thought. The findings of this study aim to clarify the relationship between the availability of linguistic resources and the effectiveness of reasoning-based versus retrieval-based strategies in reducing hallucination.
 
 
 ## Introduction
@@ -40,6 +24,6 @@ The codebase is organized as follows:
 - `generated_bios_qwen_CoT/`: contains the CoT aided biographies used in the paper.
 - `necessary_dicts/`: contains the necessary dictionaries for the code.
 - `factscore.py`: contains the modified code for the FActScore metric.
-- `bio_generator.py`: contains the code to generate all bios (baseline, RAG based, and CoT based).
+- `bio_generator.ipynb`: contains the code to generate all bios (baseline, RAG based, and CoT based).
 - `evaluation.ipynb`: contains the set-up to calculate FActScores on all biographies after they are translated to English using GPT-4.
 
