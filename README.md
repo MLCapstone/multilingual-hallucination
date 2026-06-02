@@ -1,4 +1,4 @@
-# Multi-FAct: Assessing Multilingual LLMs’ Multi-Regional Knowledge using FActScore
+# Analyzing LLM Hallucination Mitigation Methods For Low-Resource Languages
 
 ## Abstract
 
@@ -6,8 +6,7 @@ This study analyzes the effectiveness of various hallucination mitigation techni
 
 
 ## Introduction
-This codebase contains the code for the paper "Analyzing LLM Hallucination Mitigation
-Methods For Low-Resource Languages." This paper was produced as a submission for the Machine Learning Capstone at University of Washington in Spring 2026.
+This codebase contains the code for the paper "Analyzing LLM Hallucination Mitigation Methods For Low-Resource Languages." This paper was produced as a submission for the Machine Learning Capstone at University of Washington in Spring 2026.
 
 This codebase is extends the [Multi-FAct codebase](https://github.com/sheikhshafayat/multi-fact) which in turn builds heavily on top of the [FActScore codebase](https://github.com/shmsw25/FActScore). Please cite both these original paper too if you find this code useful.
 
